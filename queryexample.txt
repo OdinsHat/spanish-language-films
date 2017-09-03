@@ -1,0 +1,12 @@
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?item ?pubDate ?directorLabel ?itemLabel WHERE {
+   ?item wdt:P31 wd:Q11424 .
+   ?item wdt:P364 wd:Q9176 .
+   ?item wdt:P577 ?pubDate .
+   ?item wdt:P57 ?director .
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en" .
+  }
+ } ORDER BY DESC(?pubDate)
